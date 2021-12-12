@@ -1,23 +1,17 @@
-.PHONY: clean all 
+OBJS	= main.o
+SOURCE	= main.cpp
+HEADER	= 
+OUT	= Test3
+CC	 = g++
+FLAGS	 = -g -c -Wall
+LFLAGS	 = 
 
-BIN_DIR = ./bin
-BUILD_DIR = ./build
-SRC_DIR = ./calcApp
-FLAGS =-Wall -std=c++11
+all: $(OBJS)
+	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)
 
-all: $(BIN_DIR)/main
+main.o: main.cpp
+	$(CC) $(FLAGS) main.cpp 
 
-$(BIN_DIR)/main: $(BUILD_DIR)/main.o 
-	g++ $(FLAGS) $(BUILD_DIR)/main.o $(BIN_DIR)/main
-
-$(BUILD_DIR)/calcApp.o:
-	g++ $(FLAGS) -c $(SRC_DIR)/main.cpp -o $(BUILD_DIR)/main.o
-	
-		
-run: 
-	./bin/main
-	
 
 clean:
-	rm -f build/*.o
-	rm -f bin/main
+	rm -f $(OBJS) $(OUT)
