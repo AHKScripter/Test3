@@ -1,4 +1,4 @@
-.PHONY: clean all test run runtest
+.PHONY: clean all 
 
 BIN_DIR = ./bin
 BUILD_DIR = ./build
